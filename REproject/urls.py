@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from reapp1 import views
 urlpatterns = [
     path('a/',include('reapp1.urls')),
+    path('addestate/',views.addEstate),
     path('admin/', admin.site.urls),
 ]
