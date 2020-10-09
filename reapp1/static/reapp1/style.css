@@ -18,3 +18,28 @@ select{
     height: 40rem;
     margin: auto;
 }
+#GeneralEstates{
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    flex-direction: row;
+}
+#NavEstates{
+ flex: 1;
+ background-color: lightcyan;
+ border-right: 2px solid black;
+}
+#NavEstates h3{
+    padding: 0;
+    margin: 0;
+    text-decoration: underline;
+}
+#MainEstateList{
+    flex: 2;
+    background-color: burlywood;
+}
+.EstateItem{
+    width: 100%;
+    height: 5rem;
+    background-color: lightslategray;
+}

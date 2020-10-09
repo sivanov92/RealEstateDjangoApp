@@ -19,5 +19,6 @@ from reapp1 import views
 urlpatterns = [
     path('a/',include('reapp1.urls')),
     path('addestate/',views.addEstate),
+    path('seeEstates/',views.seeEstates),
     path('admin/', admin.site.urls),
 ]
