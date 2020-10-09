@@ -4,10 +4,17 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 import json
 from reapp1.models import Agents,Estates
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponseRedirect
+from .forms import EstateForm
 # Create your views here.
 def addEstate(request):
-    return render(request,'addEstate.html')
+    if request.method == 'POST':
+        form = EstateForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/Thanks/')
+    else:
+        form = EstateForm()        
+    return render(request,'addEstate.html',{'form':form})
 
 def agents(request):
     if request.method == "GET":

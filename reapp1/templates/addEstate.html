@@ -1,27 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Welcome</h1>
-<h2>You can add new Estate data from this basic panel !</h2>
+<h2>You can add new real estate  data from this basic panel !</h2>
+
 <div id='FormDiv'>
- <form action="" class="form-group">
-     <input type="text" name="" id="" placeholder="Estate Tittle">
-     <br>
-     <textarea name="" id="" cols="30" rows="10" placeholder="Description"></textarea>
-     <br>
-     <textarea name="" id="" cols="30" rows="10" placeholder="Location"></textarea>
-     <br>
-     <input type="text" name="" id="" placeholder="Area in SqrtM">
-     <br>
-     <input type="text" name="" id="" placeholder="Construction Type">
-     <br>
-     <input type="text" name="" id="" placeholder="Status">
-     <br>
-     <input type="number" name="" id="" placeholder="Completion year">
-     <br>
-     <select name="" id="">
-         <option value=""></option>
-     </select>
-     <input type="button" value="Send">
+ <form action="" method="POST">
+     {% csrf_token %}
+     {{ form }}
+     <input type="submit" value="Send">
  </form>
  </div>
 {% endblock content %}
