@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from reapp1.models import Agents,Estates
 from django.http import JsonResponse,HttpResponseRedirect
-from .forms import EstateForm
+from .forms import EstateForm,AgentForm
 # Create your views here.
 def addEstate(request):
     if request.method == 'POST':
@@ -21,18 +21,34 @@ def addEstate(request):
                                  estate_agent=form.cleaned_data['estate_agent'])
             estate_obj.save()                            
     else:
-        form = EstateForm()        
+        form = EstateForm()  
+        #choices = []
+        #for agent in Agents.agents.all():
+        #    info = (agent.agent_name,agent.agent_name)
+        #    choices.append(info)
+        #form.fields['estate_agent'].choices = choices          
     return render(request,'addEstate.html',{'form':form})
 #--
+def addAgent(request):
+    if request.method == 'POST':
+        form = AgentForm(request.POST)
+        if form.is_valid():
+            agent_obj = Agents(agent_name=form.cleaned_data['agent_name'],
+                                agent_adress=form.cleaned_data['agent_address'],
+                                agent_contact_phone=form.cleaned_data['agent_contact_phone'])
+            agent_obj.save()                            
+    else:
+        form = AgentForm()        
+    return render(request,'addAgent.html',{'form':form})
+#--------
 def seeEstates(request):
-    element_list = [
-        Estates.estates.values()
-    ]
+    element_list =list(Estates.estates.all())
     context = {
         'element_list':element_list,
         'exists':Estates.estates.exists()
     }
     return render(request,'miniestatepreview.html',context)
+#---------    
 def agents(request):
     if request.method == "GET":
         jsonserializer = serializers.serialize('json',Agents.agents.all())

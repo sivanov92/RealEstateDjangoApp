@@ -3,7 +3,12 @@
    {% if exists %}
      {% for element in element_list %}
       <div class="EstateItem">
-      {{ element.estate_title }}
+      <div id="EstateHeading" class="ItemSub"> 
+         {{ element.estate_title }} | {{ element.estate_location }}
+      </div>   
+      <div id="DescriptionPreview" class="ItemSub">
+         {{ element.estate_description }}   
+      </div>
       </div>
       {% endfor %}
    {% endif%}   

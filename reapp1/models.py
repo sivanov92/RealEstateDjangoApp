@@ -5,6 +5,8 @@ class Agents(models.Model):
     agent_adress = models.CharField(max_length=200)
     agent_contact_phone = models.CharField(max_length=100)    
     agents = models.Manager()
+    def __str__(self):
+        return self.agent_name
 
 class Estates(models.Model):
     estate_id = models.AutoField(primary_key=True)

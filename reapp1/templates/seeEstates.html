@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Check the estates</h1>
-<div id="GeneralEstates">
+<h1>Welcome to my small RealEstate App (Django+API included)</h1>
+<div id="General">
 <div id="NavEstates" class="SubGeneral">
-     <h3>Estate Navigation</h3>
+     <h3>Navigation</h3>
      <a href="/addestate/"><div class="Links">AddEstates</div></a>
      <a href="/addagent/"><div class="Links">AddAgents</div></a>
+     <div class="Links">
+         <a href="/api/estates">API for Estates</a>
+        |  
+         <a href="/api/agents">API for Agents</a>
+     </div>
 </div>
-<div id="MainEstateList" class="SubGeneral">
+<div id="MainList" class="SubGeneral">
     {% block estateItem %}
     {% endblock estateItem %}
 </div>

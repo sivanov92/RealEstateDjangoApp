@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.urls import path,include
 from reapp1 import views
 urlpatterns = [
-    path('a/',include('reapp1.urls')),
+    path('api/',include('reapp1.urls')),
     path('addestate/',views.addEstate),
-    path('seeEstates/',views.seeEstates),
+    path('addagent/',views.addAgent),
+    path('',views.seeEstates),
     path('admin/', admin.site.urls),
 ]
