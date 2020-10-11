@@ -26,17 +26,11 @@ def addEstate(request):
 #--
 def seeEstates(request):
     element_list = [
-        {
-            'tittle':'kk',
-            'name':'js'
-        },
-        {
-            'tittle':'nm',
-            'name':'js2'
-        }
+        Estates.estates.values()
     ]
     context = {
-        'element_list':element_list
+        'element_list':element_list,
+        'exists':Estates.estates.exists()
     }
     return render(request,'miniestatepreview.html',context)
 def agents(request):

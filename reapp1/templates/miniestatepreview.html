@@ -1,8 +1,10 @@
 {% extends "seeEstates.html" %}
    {% block estateItem %}
+   {% if exists %}
      {% for element in element_list %}
       <div class="EstateItem">
-
+      {{ element.estate_title }}
       </div>
       {% endfor %}
+   {% endif%}   
    {% endblock estateItem %}
